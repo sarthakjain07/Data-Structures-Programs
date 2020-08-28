@@ -1,9 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
+//max() and min() functions are to be added and also to be solved array as adt using structure
 
-int myarray[100] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-int n = 10, capacity = sizeof(myarray) / sizeof(int); //size of array
 
+#include <stdio.h>  // helps to operate standard input output functions
+#include <stdlib.h> // standard library header file
+
+int myarray[100] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; // array being used in program
+int n = 10;                                         // number of elements in the array
+int capacity = sizeof(myarray) / sizeof(int);       // size of array
+
+// This function displays all elements of array by traversing them
 void display()
 {
     printf("The elements of array are:\n");
@@ -14,6 +19,7 @@ void display()
     printf("\n");
 }
 
+// This function adds the passed element after the last element of array
 void append(int ele)
 {
     myarray[n] = ele;
@@ -21,6 +27,7 @@ void append(int ele)
     printf("%d successfully appended\n", ele);
 }
 
+// This function adds the element in the given position in array
 void insertion(int ele, int po)
 {
     if (n >= capacity)
@@ -48,34 +55,20 @@ void insertion(int ele, int po)
     }
 }
 
-void deletion(int ele, int po)
-{
-    if (n == 0)
-        printf("Array is empty\n");
-    else
-    {
-        for (int i = po; i < n - 1; i++)
-            myarray[i] = myarray[i + 1];
-        n--;
-        display();
-        printf("Successfully deleted %d from %d\n", ele, po);
-        printf("size of array is updated to %d\n", n);
-    }
-}
-
-void search(int ele)
+// This function searches the position of given element inside the array
+int search(int ele)
 {
     int low = 0, high = n - 1, mid;
     if (myarray[low] == ele)
     {
         printf("%d succeessfully found at %d\n", ele, low);
-        return;
+        return low;
     }
 
     if (myarray[high] == ele)
     {
         printf("%d succeessfully found at %d\n", ele, high);
-        return;
+        return high;
     }
 
     while (1)
@@ -84,7 +77,7 @@ void search(int ele)
         if (ele == myarray[mid])
         {
             printf("%d succeessfully found at %d\n", ele, mid);
-            break;
+            return mid;
         }
         else if (ele > myarray[mid])
             low = mid++;
@@ -95,6 +88,36 @@ void search(int ele)
     }
 }
 
+// This function deletes the element from given position, if position not known we can also search the position of the element by calling search function
+void deletion(int ele)
+{
+    int choice, po;
+    if (n == 0)
+        printf("Array is empty\n");
+    else
+    {
+        printf("Press 1 If you know the position of element otherwise Press 2\n");
+        scanf("%d",&choice);
+        if(choice==1)
+        {
+            printf("Enter the position of element %d\n",ele);
+            scanf("%d",&po);
+        }
+         if(choice==2)
+        {
+            po=search(ele);
+        }
+        for (int i = po; i < n - 1; i++)
+            myarray[i] = myarray[i + 1];
+        n--;
+        display();
+        printf("Successfully deleted %d from %d\n", ele, po);
+        printf("size of array is updated to %d\n", n);
+        
+    }
+}
+
+// This function tells whether the array is sorted or not
 void isSort()
 {
     for (int i = 0; i < n; i++)
@@ -111,19 +134,9 @@ xain:
 void main()
 {
     char choice;
-    int append_ele, insert_position, insert_ele, del_ele, del_position, search_ele;
-    // printf("Enter the total capacity of array\n");
-    // scanf("%d", &capacity);
-
-    // printf("Enter the no. of elements to be stored in array:\n");
-    // scanf("%d",&no_of_elem);
-    // printf("Enter %d elements in array:\n",no_of_elem);
-    // for (int i = 0; i < no_of_elem; i++)
-    // {
-    //     scanf("%d",&myarray[i]);
-    // }
-    // display(myarray,no_of_elem);
+    int append_ele, insert_position, insert_ele, del_ele, search_ele;
     printf("Welcome To Operations on Array\n");
+    // Displaying all the operations repeatedly till the one exits using - switch case in a do while loop
     do
     {
         printf("1.Display\n2.Append\n3.Insertion\n4.Deletion\n5.Search\n6.isSorted\n7.Sort\n8.Exit\n");
@@ -145,8 +158,8 @@ void main()
             break;
         case 4:
             printf("Enter the element and position\n");
-            scanf("%d %d", &del_ele, &del_position);
-            deletion(del_ele, del_position);
+            scanf("%d", &del_ele);
+            deletion(del_ele);
             break;
         case 5:
             printf("Enter the element\n");
