@@ -1,3 +1,0 @@
-a.exe
-Rough_work.c
-Rough_work.txt
