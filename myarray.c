@@ -120,15 +120,63 @@ void deletion(int ele)
 // This function tells whether the array is sorted or not
 void isSort()
 {
-    for (int i = 0; i < n; i++)
+    if(n==0)
+        printf("Array is empty\n");
+    else
+    {
+        for (int i = 0; i < n-1; i++)
     {
         if (myarray[i] > myarray[i + 1])
+        {
+            printf("Array is not sorted\n");
+            break;
+        }
+        else
+        {
             goto xain;
+        }
     }
-xain:
-    printf("Array is not Sorted\n");
-    return;
-    printf("Array is sorted");
+    xain:
+        printf("Array is sorted\n");
+    } 
+}
+
+// This function gives the maximum number from array
+void max_array()
+{ 
+    if (n == 0)
+        printf("Array is empty\n");
+    else
+    {
+        int max=0;
+    for(int i=1;i<n;i++)
+    {
+        if(myarray[max]<myarray[i])
+            myarray[max]=myarray[i];
+    }
+    printf("The maximum element of the array is %d\n",myarray[max]);
+
+    }
+      
+}
+
+// This function gives the minimum number from array
+void min_array()
+{ 
+    if (n == 0)
+        printf("Array is empty\n");
+    else
+    {
+        int min=0;
+    for(int i=0;i<n;i++)
+    {
+        if(myarray[min]>myarray[i])
+            myarray[min]=myarray[i];
+    }
+    printf("The minimum element of the array is %d\n",myarray[min]);
+
+    }
+      
 }
 
 void main()
@@ -139,7 +187,7 @@ void main()
     // Displaying all the operations repeatedly till the one exits using - switch case in a do while loop
     do
     {
-        printf("1.Display\n2.Append\n3.Insertion\n4.Deletion\n5.Search\n6.isSorted\n7.Sort\n8.Exit\n");
+        printf("1.Display\n2.Append\n3.Insertion\n4.Deletion\n5.Search\n6.isSorted\n7.Sort\n8.Maximum_Number\n9.Minimum_Number\n10.Exit\n");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -170,11 +218,17 @@ void main()
             isSort();
             break;
         case 8:
+            max_array();
+            break;     
+        case 9:
+            min_array();
+            break;     
+        case 10:
             printf("You are successfully exited\n");
             break;
         default:
             printf("Please Choose a valid option\n");
             break;
         }
-    } while (choice != 8);
+    } while (choice != 10);
 }
