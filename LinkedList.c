@@ -24,25 +24,13 @@ void display()
     }
 }
 
-void Insertion_end(int ele)
-{
-    
-    struct linkedl *nodeptr = (struct linkedl *)malloc(sizeof(struct linkedl));
-    nodeptr->data=ele;   
-    struct linkedl *ptr = head;
-    while (ptr!= NULL)
-        ptr = ptr->next;
-   printf("s");            
-   ptr->next = nodeptr;
-   nodeptr->next = NULL;
-   printf("%d successfully added at the End\n", ele);
-}
 
 void Insertion(int ele)
 {
-    int choice;
+    int choice,inbw_choice;
     struct linkedl *nodeptr = (struct linkedl *)malloc(sizeof(struct linkedl));
     nodeptr->data = ele;
+    struct linkedl *ptr = head;
     printf("Where do u want to store the element\n1.At the beginning\n2.At the end\n3.In between\n4.After a node\n");
     scanf("%d", &choice);
     if (choice == 1)
@@ -53,9 +41,32 @@ void Insertion(int ele)
     }
     if (choice == 2)
     {
-        Insertion_end(ele);
+    while (ptr!= NULL)
+        ptr = ptr->next;
+    printf("s");            
+    ptr->next = nodeptr;
+    nodeptr->next = NULL;
+    printf("%d successfully added at the End\n", ele);
     }
-    
+    if (choice == 3)
+    {
+        int i=1;
+        printf("Enter the index after which node to be inserted\n");
+        scanf("%d",&inbw_choice);
+        while (i!=inbw_choice)
+            ptr=ptr->next;
+        nodeptr->next=ptr->next;
+        ptr->next=nodeptr;
+        printf("%d successfully added after the index %d\n", ele,inbw_choice);
+
+    }
+    if (choice == 4) 
+    {
+        struct linkedl *address;
+        nodeptr->next=address->next;
+        address->next=ptr;
+        printf("%d successfully after the node\n", ele);        
+    }
 }
 
 void main()
