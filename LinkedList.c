@@ -8,7 +8,7 @@ struct linkedl
 };
 struct linkedl *head = NULL;
 
-void display()
+void displayLL()
 {
     if (head == NULL)
         printf("Linked list is empty\n");
@@ -25,13 +25,13 @@ void display()
 }
 
 
-void Insertion(int ele)
+void insertionLL(int ele)
 {
     int choice,inbw_choice;
     struct linkedl *nodeptr = (struct linkedl *)malloc(sizeof(struct linkedl));
     nodeptr->data = ele;
     struct linkedl *ptr = head;
-    printf("Where do u want to store the element\n1.At the beginning\n2.At the end\n3.In between\n4.After a node\n");
+    printf("Where do u want to store the element\n1.At the beginning\n2.At the end\n3.Add In between\n4.Add after a node\n");    
     scanf("%d", &choice);
     if (choice == 1)
     {
@@ -69,6 +69,28 @@ void Insertion(int ele)
     }
 }
 
+void deletionLL()
+{
+    int choice,deleted_data;
+    struct linkedl *ptr = head;
+    printf("From Where do u want to delete the element\n1.From the beginning\n2.From the end\n3.From In between\n4.From after a node\n");    
+    scanf("%d", &choice);
+    if (choice == 1)
+    {
+        deleted_data=head->data;
+        head=head->next;
+        free(ptr);
+        printf("%d successfully deleted from the beginning\n",deleted_data);
+    }
+    if (choice == 2)
+    {
+        
+    }
+
+
+
+}
+
 void main()
 {
     int choice, insert_ele;
@@ -80,13 +102,16 @@ void main()
         switch (choice)
         {
         case 1:
-            display();
+            displayLL();
             break;
         case 2:
             printf("Enter the data to be inserted\n");
             scanf("%d", &insert_ele);
-            Insertion(insert_ele);
+            insertionLL(insert_ele);
             break;
+        case 3:
+            deletionLL();
+            break;    
         case 6:
             printf("Successfully Exited\n");
             break;
