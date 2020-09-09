@@ -24,7 +24,7 @@ void displayLL()
     }
 }
 
-
+// This function helps in inserting data in Linked List using various methods
 void insertionLL(int ele)
 {
     int choice,inbw_choice;
@@ -69,27 +69,41 @@ void insertionLL(int ele)
     }
 }
 
+//This function helps in deleting the elements from Linked List using various methods
+
+
 void deletionLL()
 {
-    int choice,deleted_data;
-    struct linkedl *ptr = head;
-    printf("From Where do u want to delete the element\n1.From the beginning\n2.From the end\n3.From In between\n4.From after a node\n");    
+    int choice=0,deleted_data=0,index=1,i=1;
+    struct linkedl *ptr1 = head;
+    struct linkedl *ptr2 = head->next;
+    printf("From Where do u want to delete the element\n1.From the beginning\n2.From the end\n3.From the given index in between the Linkedlist\n4.First occurence of given value\n");    
     scanf("%d", &choice);
     if (choice == 1)
     {
         deleted_data=head->data;
         head=head->next;
-        free(ptr);
+        free(ptr1);
         printf("%d successfully deleted from the beginning\n",deleted_data);
     }
     if (choice == 2)
     {
-        
+        while (ptr2->next!=NULL)
+        {
+            ptr2=ptr2->next;
+            ptr1=ptr1->next;
+        }
+        deleted_data=ptr2->data;
+        ptr1->next=NULL;
+        free(ptr2);
+        printf("%d successfully deleted from the end\n",deleted_data);
     }
-
+   
 
 
 }
+
+
 
 void main()
 {
