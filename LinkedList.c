@@ -7,38 +7,35 @@ struct linkedl
     struct linkedl *next;
 };
 struct linkedl *head = NULL;
-int index=0;
+int index = 0;
 
 void totalNodes(int index)
 {
-    struct linkedl *ptr=head;
-    while (ptr!=NULL)
+    struct linkedl *ptr = head;
+    while (ptr != NULL)
     {
-        ptr=ptr->next;
+        ptr = ptr->next;
         index++;
     }
-    printf("No. of nodes in linked list is/are %d\n",index);
-    
+    printf("No. of nodes in linked list is/are %d\n", index);
 }
 
-struct linkedl * searchLL(int element)
+struct linkedl *searchLL(int element)
 {
-    int i=0;
-    struct linkedl *ptr=head;
-    if(head==NULL)
+    int i = 0;
+    struct linkedl *ptr = head;
+    if (head == NULL)
         printf("Linked list is empty\n");
     else
     {
-        while (ptr->data!=element)
+        while (ptr->data != element)
         {
-            ptr=ptr->next;
+            ptr = ptr->next;
             i++;
         }
-        printf("First occurence of %d is on index %d\n",element,i);
-        return ptr;        
+        printf("First occurence of %d is on index %d\n", element, i);
+        return ptr;
     }
-        
-
 }
 
 void displayLL()
@@ -49,7 +46,7 @@ void displayLL()
     {
         struct linkedl *ptr = head;
         printf("The elements in the list are:\n");
-        while (ptr!= NULL)
+        while (ptr != NULL)
         {
             printf("%d\n", ptr->data);
             ptr = ptr->next;
@@ -60,11 +57,11 @@ void displayLL()
 // This function helps in inserting data in Linked List using various methods
 void insertionLL(int ele)
 {
-    int choice,inbw_choice;
+    int choice, inbw_choice;
     struct linkedl *nodeptr = (struct linkedl *)malloc(sizeof(struct linkedl));
     nodeptr->data = ele;
     struct linkedl *ptr = head;
-    printf("Where do u want to store the element\n1.At the beginning\n2.At the end\n3.Add In between\n4.Add after a node\n");    
+    printf("Where do u want to store the element\n1.At the beginning\n2.At the end\n3.Add In between\n4.Add after a node\n");
     scanf("%d", &choice);
     if (choice == 1)
     {
@@ -74,103 +71,126 @@ void insertionLL(int ele)
     }
     if (choice == 2)
     {
-    while (ptr!= NULL)
-        ptr = ptr->next;
-    printf("s");            
-    ptr->next = nodeptr;
-    nodeptr->next = NULL;
-    printf("%d successfully added at the End\n", ele);
+        while (ptr != NULL)
+            ptr = ptr->next;
+        printf("s");
+        ptr->next = nodeptr;
+        nodeptr->next = NULL;
+        printf("%d successfully added at the End\n", ele);
     }
     if (choice == 3)
     {
-        int i=0;
+        int i = 0;
         printf("Enter the index after which node to be inserted\n");
-        scanf("%d",&inbw_choice);
-            while (i!=inbw_choice)
+        scanf("%d", &inbw_choice);
+        while (i != inbw_choice)
         {
-            ptr=ptr->next;
+            ptr = ptr->next;
             i++;
-        }    
-        nodeptr->next=ptr->next;
-        ptr->next=nodeptr;
-        printf("%d successfully added after the index %d\n", ele,inbw_choice);
-        
-        
-
+        }
+        nodeptr->next = ptr->next;
+        ptr->next = nodeptr;
+        printf("%d successfully added after the index %d\n", ele, inbw_choice);
     }
-    if (choice == 4) 
+    if (choice == 4)
     {
         struct linkedl *address;
-        nodeptr->next=address->next;
-        address->next=ptr;
-        printf("%d successfully after the node\n", ele);        
+        nodeptr->next = address->next;
+        address->next = ptr;
+        printf("%d successfully after the node\n", ele);
     }
 }
 
 //This function helps in deleting the elements from Linked List using various methods
 
-
 void deletionLL()
 {
-    int choice=0,deleted_data=0,deletion_index=0,i=1;
-    struct linkedl *ptr1 = head;
-    struct linkedl *ptr2 = head->next;
-    printf("From Where do u want to delete the element\n1.From the beginning\n2.From the end\n3.From the given index in between the Linkedlist\n4.First occurence of given value\n");    
-    scanf("%d", &choice);
-    if (choice == 1)
+    if (head == NULL)
+        printf("Linked list is empty\n");
+    else
     {
-        deleted_data=head->data;
-        head=head->next;
-        free(ptr1);
-        printf("%d successfully deleted from the beginning\n",deleted_data);
-    }
-    if (choice == 2)
-    {
-        while (ptr2->next!=NULL)
+        int choice = 0, deleted_data = 0, deletion_index = 0, i = 1;
+        struct linkedl *ptr1 = head;
+        struct linkedl *ptr2 = head->next;
+        printf("From Where do u want to delete the element\n1.From the beginning\n2.From the end\n3.From the given index in between the Linkedlist\n4.First occurence of given value\n");
+        scanf("%d", &choice);
+        if (choice == 1)
         {
-            ptr2=ptr2->next;
-            ptr1=ptr1->next;
-        }
-        deleted_data=ptr2->data;
-        ptr1->next=NULL;
-        free(ptr2);
-        printf("%d successfully deleted from the end\n",deleted_data);
-    }
-     if (choice == 3)
-    {
-        printf("Enter the index of element to be deleted\n");
-        scanf("%d",&deletion_index);
-        if(deletion_index==0)
-        {
-            deleted_data=head->data;
-            head=head->next;
+            deleted_data = head->data;
+            head = head->next;
             free(ptr1);
-            printf("%d successfully deleted from the index %d\n",deleted_data,deletion_index);
+            printf("%d successfully deleted from the beginning\n", deleted_data);
         }
-        else if(deletion_index==1)
+        if (choice == 2)
         {
-            deleted_data=ptr2->data;
-            ptr1->next=ptr2->next;
+            while (ptr2->next != NULL)
+            {
+                ptr2 = ptr2->next;
+                ptr1 = ptr1->next;
+            }
+            deleted_data = ptr2->data;
+            ptr1->next = NULL;
             free(ptr2);
-            printf("%d successfully deleted from the index %d\n",deleted_data,deletion_index);    
+            printf("%d successfully deleted from the end\n", deleted_data);
         }
-        else
+        if (choice == 3)
         {
-        while (i<deletion_index)
+            printf("Enter the index of element to be deleted\n");
+            scanf("%d", &deletion_index);
+            if (deletion_index == 0)
+            {
+                deleted_data = head->data;
+                head = head->next;
+                free(ptr1);
+                printf("%d successfully deleted from the index %d\n", deleted_data, deletion_index);
+            }
+            else if (deletion_index == 1)
+            {
+                deleted_data = ptr2->data;
+                ptr1->next = ptr2->next;
+                free(ptr2);
+                printf("%d successfully deleted from the index %d\n", deleted_data, deletion_index);
+            }
+            else
+            {
+                while (i < deletion_index)
+                {
+                    ptr2 = ptr2->next;
+                    ptr1 = ptr1->next;
+                    i++;
+                }
+                deleted_data = ptr2->data;
+                ptr1->next = ptr2->next;
+                free(ptr2);
+                printf("%d successfully deleted from the index %d\n", deleted_data, deletion_index);
+            }
+        }
+        if (choice == 4)
         {
-            ptr2=ptr2->next;
-            ptr1=ptr1->next;
-            i++;    
+            if (ptr1->data == deleted_data)
+            {
+                deleted_data = head->data;
+                head = head->next;
+                free(ptr1);
+                printf("First occurence of %d is deleted successfully\n", deleted_data);
+            }
+            else
+            {
+                printf("Enter the number to be deleted\n");
+                scanf("%d", &deleted_data);
+                while (ptr2->data != deleted_data)
+                {
+                    ptr2 = ptr2->next;
+                    ptr1 = ptr1->next;
+                }
+                ptr1->next = ptr2->next;
+                free(ptr2);
+                printf("First occurence of %d is deleted successfully\n", deleted_data);
+            }
         }
-        deleted_data=ptr2->data;
-        ptr1->next=ptr2->next;
-        free(ptr2);
-        printf("%d successfully deleted from the index %d\n",deleted_data,deletion_index);
-        }
-
     }
 }
- 
+
 void main()
 {
     int choice, insert_ele, search_ele;
@@ -197,7 +217,7 @@ void main()
             break;
         case 4:
             printf("Enter the element to be searched\n");
-            scanf("%d",&search_ele);
+            scanf("%d", &search_ele);
             searchLL(search_ele);
         case 6:
             printf("Successfully Exited\n");
