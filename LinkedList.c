@@ -21,6 +21,26 @@ void totalNodes(int index)
     
 }
 
+struct linkedl * searchLL(int element)
+{
+    int i=0;
+    struct linkedl *ptr=head;
+    if(head==NULL)
+        printf("Linked list is empty\n");
+    else
+    {
+        while (ptr->data!=element)
+        {
+            ptr=ptr->next;
+            i++;
+        }
+        printf("First occurence of %d is on index %d\n",element,i);
+        return ptr;        
+    }
+        
+
+}
+
 void displayLL()
 {
     if (head == NULL)
@@ -153,11 +173,11 @@ void deletionLL()
  
 void main()
 {
-    int choice, insert_ele;
+    int choice, insert_ele, search_ele;
     printf("Welcome To Operations on Linked List\n");
     do
     {
-        printf("1.Display\n2.Insertion\n3.Deletion\n6.Exit\n");
+        printf("1.Display\n2.Insertion\n3.Deletion\n4.Search\n6.Exit\n");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -174,7 +194,11 @@ void main()
         case 3:
             deletionLL();
             totalNodes(index);
-            break;    
+            break;
+        case 4:
+            printf("Enter the element to be searched\n");
+            scanf("%d",&search_ele);
+            searchLL(search_ele);
         case 6:
             printf("Successfully Exited\n");
             break;
