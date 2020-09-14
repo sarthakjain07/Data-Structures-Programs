@@ -9,6 +9,8 @@ struct linkedl
 struct linkedl *head = NULL;
 int index = 0;
 
+
+//This function tells the total no. of nodes in linked list after each insertion and deletion
 void totalNodes(int index)
 {
     struct linkedl *ptr = head;
@@ -20,6 +22,8 @@ void totalNodes(int index)
     printf("No. of nodes in linked list is/are %d\n", index);
 }
 
+
+// This function search first occurence of given element in the linked list
 struct linkedl *searchLL(int element)
 {
     int i = 0;
@@ -38,6 +42,8 @@ struct linkedl *searchLL(int element)
     }
 }
 
+
+//This function displays each element present in the linked list
 void displayLL()
 {
     if (head == NULL)
@@ -102,7 +108,6 @@ void insertionLL(int ele)
 }
 
 //This function helps in deleting the elements from Linked List using various methods
-
 void deletionLL()
 {
     if (head == NULL)
@@ -191,13 +196,15 @@ void deletionLL()
     }
 }
 
+
+//This function operates all the other functions of this program
 void main()
 {
     int choice, insert_ele, search_ele;
     printf("Welcome To Operations on Linked List\n");
     do
     {
-        printf("1.Display\n2.Insertion\n3.Deletion\n4.Search\n6.Exit\n");
+        printf("1.Display\n2.Insertion\n3.Deletion\n4.Search\n5.Exit\n");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -219,12 +226,12 @@ void main()
             printf("Enter the element to be searched\n");
             scanf("%d", &search_ele);
             searchLL(search_ele);
-        case 6:
+        case 5:
             printf("Successfully Exited\n");
             break;
         default:
             printf("Enter a valid choice\n");
             break;
         }
-    } while (choice != 6);
+    } while (choice != 5);
 }
