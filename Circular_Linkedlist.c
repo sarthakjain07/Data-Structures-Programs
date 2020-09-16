@@ -6,27 +6,27 @@ struct circularLL
     int data;
     struct circularLL *next;
 };
-
-void displayCLL(struct circularLL *head)
+struct circularLL *head = NULL;
+void displayCLL()
 {
 
     struct circularLL *ptr = head;
-    if (ptr->next == NULL)
+    if (head == NULL)
     {
         printf("Circular Linked list is empty\n");
     }
     else
     {
+        printf("The Elements in the list are:\n");
         do
         {
-            printf("%d", ptr->data);
+            printf("%d\n", ptr->data);
             ptr = ptr->next;
-
         } while (ptr != head);
     }
 }
 
-void insertionCLL(struct circularLL *head,int ele)
+void insertionCLL(int ele)
 {
     int choice, inbw_choice;
     struct circularLL *node = (struct circularLL *)malloc(sizeof(struct circularLL));
@@ -34,19 +34,28 @@ void insertionCLL(struct circularLL *head,int ele)
     struct circularLL *ptr = head;
     printf("Where do u want to store the element\n1.At the beginning\n2.At the end\n3.Add In between\n4.Add after a node\n");
     scanf("%d", &choice);
-    if(choice==1)
+    if (choice == 1)
     {
-        
-
-
+        if (head == NULL)
+        {
+            head = node;
+            node->next = head;
+            printf("%d successfully added at the beginning\n", ele);
+        }
+        else
+        {
+            while (ptr->next != head)
+                ptr = ptr->next;
+            ptr->next = node;
+            node->next = head;
+            head = node;
+            printf("%d successfully added at the beginning\n", ele);
+        }
     }
-
 }
 
 void main()
 {
-    struct circularLL *head = (struct circularLL *)malloc(sizeof(struct circularLL));
-    head->next = NULL;
     int choice, insert_ele, search_ele;
     printf("Welcome To Operations on Circular Linked List\n");
     do
@@ -56,13 +65,13 @@ void main()
         switch (choice)
         {
         case 1:
-            displayCLL(head);
+            displayCLL();
             // totalNodes(index);
             break;
         case 2:
             printf("Enter the data to be inserted\n");
             scanf("%d", &insert_ele);
-            insertionCLL(head,insert_ele);
+            insertionCLL(insert_ele);
             // totalNodes(index);
             break;
         case 3:
