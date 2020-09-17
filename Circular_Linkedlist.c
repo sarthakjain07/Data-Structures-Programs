@@ -26,8 +26,20 @@ void displayCLL()
     }
 }
 
+void insertionCLL_first(int ele)
+{
+    struct circularLL *node = (struct circularLL *)malloc(sizeof(struct circularLL));
+    node->data = ele;
+    struct circularLL *ptr = head;
+    head = node;
+    node->next = head;
+    printf("%d successfully added at the first position of list\n", ele);
+
+}
+
 void insertionCLL(int ele)
 {
+
     int choice, inbw_choice;
     struct circularLL *node = (struct circularLL *)malloc(sizeof(struct circularLL));
     node->data = ele;
@@ -37,11 +49,7 @@ void insertionCLL(int ele)
     if (choice == 1)
     {
         if (head == NULL)
-        {
-            head = node;
-            node->next = head;
-            printf("%d successfully added at the beginning\n", ele);
-        }
+            insertionCLL_first(ele);
         else
         {
             while (ptr->next != head)
@@ -52,6 +60,24 @@ void insertionCLL(int ele)
             printf("%d successfully added at the beginning\n", ele);
         }
     }
+    if (choice == 2)
+    {
+        if(head==NULL)
+            insertionCLL_first(ele);
+        else
+        {
+            while (ptr->next != head)
+                ptr = ptr->next;
+            node->next = ptr->next;
+            ptr->next = node;
+            printf("%d successfully added at the last\n", ele);
+
+
+
+        }
+    }   
+
+
 }
 
 void main()
