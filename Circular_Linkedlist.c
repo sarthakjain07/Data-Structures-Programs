@@ -26,14 +26,21 @@ void displayCLL()
     }
 }
 
-void insertionCLL_first(int ele)
+void totalNodes(int index)
 {
-    struct circularLL *node = (struct circularLL *)malloc(sizeof(struct circularLL));
-    node->data = ele;
-    struct circularLL *ptr = head;
-    head = node;
-    node->next = head;
-    printf("%d successfully added at the first position of list\n", ele);
+    if(head==NULL)
+        index=0;
+    else
+    {
+        struct circularLL *ptr = head;
+        while(ptr->next!=head)
+        {
+            ptr=ptr->next;
+            index++;
+        }
+        printf("Currently no. of nodes in linked list are \n",&index);
+
+    }    
 
 }
 
@@ -49,7 +56,11 @@ void insertionCLL(int ele)
     if (choice == 1)
     {
         if (head == NULL)
-            insertionCLL_first(ele);
+        {
+            head = node;
+            node->next = head;
+            printf("%d successfully added at the first position of list\n", ele);
+        }
         else
         {
             while (ptr->next != head)
@@ -63,7 +74,12 @@ void insertionCLL(int ele)
     if (choice == 2)
     {
         if(head==NULL)
-            insertionCLL_first(ele);
+        {
+            head = node;
+            node->next = head;
+            printf("%d successfully added at the first position of list\n", ele);
+
+        }
         else
         {
             while (ptr->next != head)
@@ -71,18 +87,17 @@ void insertionCLL(int ele)
             node->next = ptr->next;
             ptr->next = node;
             printf("%d successfully added at the last\n", ele);
-
-
-
         }
-    }   
+    }
+    if (choice == 3)
+
 
 
 }
 
 void main()
 {
-    int choice, insert_ele, search_ele;
+    int choice, insert_ele, search_ele, index=1;
     printf("Welcome To Operations on Circular Linked List\n");
     do
     {

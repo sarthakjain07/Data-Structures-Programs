@@ -7,7 +7,6 @@ struct linkedl
     struct linkedl *next;
 };
 struct linkedl *head = NULL;
-int index = 0;
 
 
 //This function tells the total no. of nodes in linked list after each insertion and deletion
@@ -199,8 +198,8 @@ void deletionLL()
 
 //This function operates all the other functions of this program
 void main()
-{
-    int choice, insert_ele, search_ele;
+{ 
+    int choice, insert_ele, search_ele, index = 0;
     printf("Welcome To Operations on Linked List\n");
     do
     {
