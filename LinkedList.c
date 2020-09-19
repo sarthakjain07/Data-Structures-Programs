@@ -104,6 +104,9 @@ void insertionLL(int ele)
         address->next = ptr;
         printf("%d successfully after the node\n", ele);
     }
+    else
+        printf("Enter a valid choice\n");
+    
 }
 
 //This function helps in deleting the elements from Linked List using various methods
@@ -192,6 +195,9 @@ void deletionLL()
                 printf("First occurence of %d is deleted successfully\n", deleted_data);
             }
         }
+        else
+            printf("Enter a valid choice\n");
+        
     }
 }
 
