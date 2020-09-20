@@ -156,7 +156,27 @@ void insertionCLL(int ele)
     
 }
 
-
+void deletionCLL()
+{
+    if(head==NULL)
+        printf("Circular linked is empty\n");        
+    else if(head->next==head)
+    {
+        struct circularCLL * ptr=head;
+        head=NULL;
+        free(ptr);
+        printf("The only node in the linked is deleted\n");
+    }
+    else
+    {
+        int choice = 0, deleted_data = 0, deletion_index = 0, i = 1;
+        struct linkedl *ptr1 = head;
+        struct linkedl *ptr2 = head->next;
+        printf("From Where do u want to delete the element\n1.From the beginning\n2.From the end\n3.From the given index in between the Linkedlist\n4.First occurence of given value\n");
+        scanf("%d", &choice);
+    }    
+    
+}
 
 void main()
 {
