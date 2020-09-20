@@ -131,6 +131,28 @@ void insertionCLL(int ele)
             printf("%d successfully added after node %d", ele, index_node);
         }
     }
+    if(choice==4)
+    {
+        
+        if(head==NULL)
+        {
+            head = node;
+            node->next = head;
+            printf("%d successfully added at the first position of list\n", ele);
+        }
+        else
+        {
+            printf("Enter the element after which u want the data to be inserted\n");
+            scanf("%d",&search_ele);
+            struct circularLL * ptr=searchCLL(search_ele);
+            node->next=ptr->next;
+            ptr->next=node;
+            printf("%d successfully added after %d\n",ele,search_ele);
+            
+        }
+    }
+    else
+        printf("Enter a valid choice\n");
     
 }
 
