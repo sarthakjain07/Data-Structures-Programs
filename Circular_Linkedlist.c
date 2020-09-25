@@ -37,11 +37,15 @@ void displayCLL()
     else
     {
         printf("The Elements in the list are:\n");
-        do
+        printf("%d\n",ptr->data);
+        ptr=ptr->next;
+        while (ptr!=head)
         {
-            printf("%d\n", ptr->data);
-            ptr = ptr->next;
-        } while (ptr != head);
+        printf("%d\n",ptr->data);
+        ptr=ptr->next;    
+        } 
+        
+
     }
 }
 
@@ -128,7 +132,7 @@ void insertionCLL(int ele)
             }
             node->next = ptr->next;
             ptr->next = node;
-            printf("%d successfully added after node %d", ele, index_node);
+            printf("%d successfully added after node %d\n", ele, index_node);
         }
     }
     if(choice==4)
@@ -162,7 +166,7 @@ void deletionCLL()
         printf("Circular linked is empty\n");        
     else if(head->next==head)
     {
-        struct circularCLL * ptr=head;
+        struct circularLL * ptr=head;
         head=NULL;
         free(ptr);
         printf("The only node in the linked is deleted\n");
@@ -170,10 +174,20 @@ void deletionCLL()
     else
     {
         int choice = 0, deleted_data = 0, deletion_index = 0, i = 1;
-        struct linkedl *ptr1 = head;
-        struct linkedl *ptr2 = head->next;
+        struct circularLL *ptr1 = head;
+        struct circularLL *ptr2 = head->next;
         printf("From Where do u want to delete the element\n1.From the beginning\n2.From the end\n3.From the given index in between the Linkedlist\n4.First occurence of given value\n");
         scanf("%d", &choice);
+        if(choice==1)
+        {        
+            while(ptr2->next!=head)
+                ptr2=ptr2->next;
+            head=ptr1->next;
+            ptr2->next=head;
+            deleted_data=ptr1->data;
+            free(ptr1);
+            printf("%d successfully deleted from beginning\n",deleted_data);
+        }
     }    
     
 }
@@ -199,7 +213,7 @@ void main()
             // totalNodes(index);
             break;
         case 3:
-            // deletionCLL();
+            deletionCLL();
             // totalNodes(index);
             break;
         case 4:
