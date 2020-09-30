@@ -162,6 +162,7 @@ void insertionCLL(int ele)
 
 void deletionCLL()
 {
+    int index_node=0, ele;
     if(head==NULL)
         printf("Circular linked is empty\n");        
     else if(head->next==head)
@@ -188,6 +189,77 @@ void deletionCLL()
             free(ptr1);
             printf("%d successfully deleted from beginning\n",deleted_data);
         }
+        if(choice==2)
+        {
+            while (ptr2->next!=head)
+            {
+                ptr1=ptr1->next;
+                ptr2=ptr2->next;
+            }
+            ptr1->next=head;
+            deleted_data=ptr2->data;
+            free(ptr2);
+            printf("%d successfully deleted from the end\n",deleted_data);
+        }
+        if(choice==3)
+        {
+            printf("Enter the index no. of node to be deleted\n");
+            scanf("%d",&index_node);
+            if(index_node==0)
+            {
+            while(ptr2->next!=head)
+            ptr2=ptr2->next;
+            head=ptr1->next;
+            ptr2->next=head;
+            deleted_data=ptr1->data;
+            free(ptr1);
+            printf("%d successfully deleted from beginning\n",deleted_data);
+            }
+            else
+            {
+                while (index_node!=1)
+                {
+                    ptr1=ptr1->next;
+                    ptr2=ptr2->next;
+                    i--;   
+                }
+                ptr1->next=ptr2->next;
+                deleted_data=ptr2->data;
+                free(ptr2);
+                printf("%d successfully deleted from index number %d\n",deleted_data,index_node);
+
+            }
+        }
+        if(choice==4)
+        {
+            printf("Enter the element to be deleted\n");
+            scanf("%d",&ele);
+            if(ptr1->data==ele)
+            {
+            while(ptr2->next!=head)
+            ptr2=ptr2->next;
+            head=ptr1->next;
+            ptr2->next=head;
+            deleted_data=ptr1->data;
+            free(ptr1);
+            printf("%d successfully deleted from beginning\n",deleted_data);   
+            }
+            else
+            {
+                while (ptr2->data!=ele)
+                {
+                    ptr1=ptr1->next;
+                    ptr2=ptr2->next;
+                }
+                ptr1->next=ptr2->next;
+                deleted_data=ptr2->data;
+                free(ptr2);
+                printf("First position of %d is successfully deleted\n",deleted_data);
+            }
+            
+
+        }
+
     }    
     
 }
