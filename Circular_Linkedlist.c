@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// This is a structure of every node of Circular linked list
 struct circularLL
 {
     int data;
     struct circularLL *next;
 };
+
+// Initialization of head pointer or starting pointer of list
 struct circularLL *head = NULL;
 
+// This function searches the given number and tell its index and also returns its address
 struct circularLL *searchCLL(int ele)
 {
     if (head == NULL)
@@ -26,6 +30,8 @@ struct circularLL *searchCLL(int ele)
     }
 }
 
+
+// This functions prints all the elements of the circular linked list
 void displayCLL()
 {
 
@@ -49,6 +55,8 @@ void displayCLL()
     }
 }
 
+
+// This function tells the total number of nodes present in list and return the value
 int totalNodes(int index)
 {
     if (head == NULL)
@@ -66,6 +74,8 @@ int totalNodes(int index)
     return index;
 }
 
+
+// This function inserts the given number in various places inside the list
 void insertionCLL(int ele)
 {
 
@@ -160,6 +170,8 @@ void insertionCLL(int ele)
     
 }
 
+
+// This function deletes a complete node from various places inside the list
 void deletionCLL()
 {
     int index_node=0, ele;
@@ -264,6 +276,8 @@ void deletionCLL()
     
 }
 
+
+// This functions operate all the other functions of circular linked list
 void main()
 {
     int choice, insert_ele, search_ele, index = 1;
