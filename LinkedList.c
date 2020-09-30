@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// This is the structure of a node of a linked list
 struct linkedl
 {
     int data;
