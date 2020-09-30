@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct doublyll
+{
+    int data;
+    struct doublyll *next;
+    struct doublyll *previous;
+};
+struct doublyll *head=NULL;
+
+void searchDLL(int num)
+{
+
+}
+
+void insertionDLL(int num)
+{
+
+}
+
+void deletionDLL()
+{
+
+}
+
+void displayDLL()
+{
+    
+}
+
+int main()
+{
+    int choice,insert_num,search_num;
+    printf("welcome to the program of Dounly Linked list\n");
+    printf("Enter your choice\n");
+    printf("1.Insertion\n2.Deletion\n3.Display\n4.Search\n5.Exit\n");
+    scanf("%d",&choice);
+    do
+    {
+        switch (choice)
+        {
+        case 1: printf("Enter the no. to be inserted\n");
+                scanf("%d",&insert_num);
+                insertionDLL(insert_num);
+                break;
+        case 2: deletionDLL();
+                break;        
+        case 3: displayDLL();
+                break;        
+        case 4: printf("Enter the no. to be searched\n");
+                scanf("%d",&search_num);
+                searchDLL(search_num);
+                break;        
+        case 5: printf("Successfully Exited\n");
+                break;        
+        default:printf("Enter a valid choice\n");
+                break;
+        }
+    } while (choice!=5);
+    
+    return 0;
+}
