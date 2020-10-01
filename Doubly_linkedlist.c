@@ -24,6 +24,7 @@ void insertionDLL(int num)
                 node->next=NULL;
                 node->previous=NULL;
                 head=node;
+                printf("%d successfully inserted in the beginning\n,num");
         }
         else
         {
@@ -36,6 +37,8 @@ void insertionDLL(int num)
                         node->previous=NULL;
                         head->previous=node;
                         head=node;
+                        printf("%d successfully inserted in the beginning\n,num");
+
                 }
                 if(choice==2)
                 {
@@ -43,7 +46,9 @@ void insertionDLL(int num)
                                 ptr=ptr->next;
                         ptr->next=node;
                         node->previous=ptr;
-                        node->next=NULL;              
+                        node->next=NULL;
+                        printf("%d successfully inserted at  the end\n,num");
+
                 }
         }
         
