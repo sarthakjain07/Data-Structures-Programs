@@ -16,6 +16,20 @@ void searchDLL(int num)
 
 void insertionDLL(int num)
 {
+        int choice;
+        struct doublyll *node=(struct doublyll*)malloc(sizeof(struct doublyll));
+        struct doublyll *ptr=head;
+        if(head==NULL)
+        {
+                node->next=NULL;
+                node->previous=NULL;
+                head=node;
+        }
+        // else
+        // {
+        //         printf("Where do you want to store the Element\n");
+        // }
+        
 
 }
 
