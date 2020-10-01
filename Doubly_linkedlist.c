@@ -37,6 +37,14 @@ void insertionDLL(int num)
                         head->previous=node;
                         head=node;
                 }
+                if(choice==2)
+                {
+                        while (ptr->next!=NULL)
+                                ptr=ptr->next;
+                        ptr->next=node;
+                        node->previous=ptr;
+                        node->next=NULL;              
+                }
         }
         
 
