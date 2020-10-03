@@ -16,7 +16,7 @@ void searchDLL(int num)
 
 void insertionDLL(int num)
 {
-        int choice;
+        int choice,index;
         struct doublyll *node=(struct doublyll*)malloc(sizeof(struct doublyll));
         struct doublyll *ptr=head;
         if(head==NULL)
@@ -30,7 +30,6 @@ void insertionDLL(int num)
         {
                 printf("Where do you want to store the Element\n1. In the Beginning\n2. At the End\n 3. After The given index\n4. Before the given index\n5. After a given value\n6. Before a given value\n");
                 scanf("%d",&choice);
-
                 if(choice==1)
                 {
                         node->next=head;
@@ -38,7 +37,6 @@ void insertionDLL(int num)
                         head->previous=node;
                         head=node;
                         printf("%d successfully inserted in the beginning\n,num");
-
                 }
                 if(choice==2)
                 {
@@ -49,6 +47,51 @@ void insertionDLL(int num)
                         node->next=NULL;
                         printf("%d successfully inserted at  the end\n,num");
 
+                }
+                if(choice==3)
+                {
+                        printf("Enter the index after which you want the number to be inserted\n");
+                        scanf("%d",&index);
+                        while (index!=0)
+                        {
+                                ptr=ptr->next;
+                                index--;
+                        }
+                        node->next=ptr->next;
+                        node->previous=ptr;
+                        ptr->next=node;
+                        ptr=ptr->next;
+                        ptr->previous=node;
+                        printf("%d successfully inserted after the index %d\n,num,index");        
+                }
+                if(choice==4)
+                {
+                        printf("Enter the index before which you want to store the element\n");
+                        scanf("%d",&index);
+                        if(index==0)
+                        {
+                                node->next=head;
+                                node->previous=NULL;
+                                head->previous=node;
+                                head=node;
+                                printf("%d successfully inserted before the index %d\n,num,index");
+                        }
+                        else
+                        {
+                                index=index-1;
+                                while (index!=0)
+                                {
+                                        ptr=ptr->next;
+                                        index--;
+                                }
+                                node->next=ptr->next;
+                                node->previous=ptr;
+                                ptr->next=node;
+                                ptr=ptr->next;
+                                ptr->previous=node;
+                                printf("%d successfully inserted before the index %d\n,num,index+1");
+                        }
+                        
                 }
         }
         
