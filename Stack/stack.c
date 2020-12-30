@@ -8,6 +8,20 @@ struct stack{
     int *a;
 };
 
+int isEmpty(struct stack *s) 
+{
+    if(s->top==-1)
+        return 1;
+    return 0;    
+}
+
+// int isFull(struct stack *s)
+// {
+//     if(s->top==(s->size-1))
+//         return 1;
+//     return 0;    
+// }
+
 int main()
 {
     int choice;
