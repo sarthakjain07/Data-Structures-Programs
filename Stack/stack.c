@@ -15,12 +15,12 @@ int isEmpty(struct stack *s)
     return 0;    
 }
 
-// int isFull(struct stack *s)
-// {
-//     if(s->top==(s->size-1))
-//         return 1;
-//     return 0;    
-// }
+int isFull(struct stack *s)
+{
+    if(s->top==(s->size-1))
+        return 1;
+    return 0;    
+}
 
 int main()
 {
