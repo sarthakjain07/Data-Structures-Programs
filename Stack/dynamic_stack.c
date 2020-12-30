@@ -49,6 +49,21 @@ void push(struct stack *s,int ele)
     }  
 }
 
+void pop(struct stack *s)
+{
+    if(isEmpty(s))
+        printf("Stack is empty\n");
+    else
+    {
+        int ele;
+        ele=s->a[s->top];
+        free(s->a[s->top]);
+        printf("%d is poped from the position %d",ele,s->top);    
+        s->top--;
+    }
+        
+}
+
 int main()
 {
     int choice,ele;
@@ -66,16 +81,16 @@ int main()
                 break;
         case 2: push(s,ele);
                 break;
-        // case 3:pop(s);
-        //     break;
+        case 3:pop(s);
+            break;
         // case 4:peek(s);
         //     break;
-        case 3: printf("Successfully Exited\n");
+        case 5: printf("Successfully Exited\n");
             break;               
         default: printf("Enter a valid choice\n");
             break;
         }
-    } while (choice!=3);
+    } while (choice!=5);
     
    
 
