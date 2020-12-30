@@ -25,7 +25,7 @@ int isFull(struct stack *s)
 void traverse(struct stack *s)
 {
     if(isEmpty)
-        printf("Stack is empty");
+        printf("Stack is empty\n");
     else
     {
         for(int i=0;i<s->size;i++)
@@ -34,9 +34,22 @@ void traverse(struct stack *s)
         
 }
 
+void push(struct stack *s,int ele)
+{
+    if(isFull)
+        printf("Stack is full\n");
+    else
+    {
+        s->top++;
+        scanf("%d",&s->a[s->top]);
+        printf("%dsuccessfully added at position %d of stack\n",ele,s->top);
+    }
+        
+}
+
 int main()
 {
-    int choice;
+    int choice,ele;
     struct stack *s; //allocating memory for stack dynamically in heap using pointer
     s->size=5;
     s->top=-1;
@@ -49,12 +62,14 @@ int main()
         {
         case 1:traverse(s);
             break;
-        case 2:push(s);
+        case 2:printf("Enter the number you want to push\n");
+            scanf("%d",&ele);
+            push(s,ele);
             break;
-        case 3:pop(s);
-            break;
-        case 4:peek(s);
-            break;
+        // case 3:pop(s);
+        //     break;
+        // case 4:peek(s);
+        //     break;
         case 5:printf("Successfully Exited\n");
             break;               
         default: printf("Enter a valid choice\n");
