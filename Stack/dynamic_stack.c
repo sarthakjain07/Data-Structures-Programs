@@ -58,10 +58,20 @@ void pop(struct stack *s)
         int ele;
         ele=s->a[s->top];
         free(s->a[s->top]);
-        printf("%d is poped from the position %d",ele,s->top);    
+        printf("%d is poped from the position %d\n",ele,s->top);    
         s->top--;
     }
         
+}
+
+void peek(struct stack *s)
+{
+    if(isEmpty(s))
+        printf("Stack is empty\n");
+    else
+    {
+        printf("The element at the the top of stack is %d\n",s->a[s->top]);
+    }
 }
 
 int main()
