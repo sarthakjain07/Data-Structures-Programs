@@ -64,6 +64,7 @@ void pop(struct stack *s)
         
 }
 
+// This function is used to get the top most element of the stack
 void peek(struct stack *s)
 {
     if(isEmpty(s))
