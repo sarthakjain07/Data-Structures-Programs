@@ -72,6 +72,8 @@ void peek(struct stack *s)
     {
         printf("The element at the the top of stack is %d\n",s->a[s->top]);
     }
+    // isEmpty(s)?printf("Stack is empty\n"):printf("The element at the the top of stack is %d\n",s->a[s->top]);        
+
 }
 
 int main()
