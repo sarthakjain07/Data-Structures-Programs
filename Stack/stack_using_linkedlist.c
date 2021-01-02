@@ -2,12 +2,12 @@
 #include<stdlib.h>
 
 int size,element_added=0;
-struct LL
+struct ll
 {
     int data;
-    struct LL *next;
+    struct ll *next;
 };
-struct LL * top=NULL;
+struct ll * top=NULL;
 
 int isEmpty()
 {
@@ -23,15 +23,33 @@ int isFull()
     return 0;    
 }
 
+void traverse()
+{
 
+}
 
+void push(int ele)
+{
 
+    if(isFull)
+        printf("Stack is Full\n");
+    else
+    {
+        struct ll *node=(struct ll *)malloc(sizeof(struct ll));
+        printf("Enter the no. to be pushed\n");
+        scanf("%d",&ele);
+        node->data=ele;
+        node->next=top;
+        top=node;
+    }
+        
+}
 
 int main()
 {
+    int choice,ele;
     printf("Enter the size of stack\n");
     scanf("%d",&size);
-    int choice,ele;
      do
     {
     printf("Welcome to the program of stack\nEnter your choice\n1. Traverse\n2. Push\n3. Pop\n4. peek\n5. Exit\n");
