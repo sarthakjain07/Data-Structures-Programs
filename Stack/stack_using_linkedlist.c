@@ -1,18 +1,30 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+int size,element_added=0;
 struct LL
 {
     int data;
-    int size;
     struct LL *next;
 };
-struct LL *top=NULL;
+struct LL * top=NULL;
+
+int isEmpty()
+{
+    if(top==NULL)
+        return 1;
+    return 0;    
+}
+
+
+
 
 
 
 int main()
 {
+    printf("Enter the size of stack\n");
+    scanf("%d",&size);
     int choice,ele;
      do
     {
