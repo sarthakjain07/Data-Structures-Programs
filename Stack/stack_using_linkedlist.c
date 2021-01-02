@@ -25,13 +25,23 @@ int isFull()
 
 void traverse()
 {
-
+    if(isEmpty())
+        printf("Stack is Empty\n");
+    else
+    {
+        struct ll *ptr=top;
+        while (ptr->next!=NULL)
+        {
+            printf("d\n",ptr->data);
+            ptr=ptr->next;
+        }    
+    }  
 }
 
 void push(int ele)
 {
 
-    if(isFull)
+    if(isFull())
         printf("Stack is Full\n");
     else
     {
@@ -41,8 +51,14 @@ void push(int ele)
         node->data=ele;
         node->next=top;
         top=node;
+        element_added++;
     }
         
+}
+
+void pop()
+{
+    if(isEmpty())
 }
 
 int main()
