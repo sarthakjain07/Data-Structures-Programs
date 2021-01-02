@@ -8,6 +8,7 @@ struct stack{
     int *a;
 };
 
+// This function checks if stack is empty
 int isEmpty(struct stack *s) 
 {
     if(s->top==-1)
@@ -15,6 +16,7 @@ int isEmpty(struct stack *s)
     return 0;    
 }
 
+// This function checks if 
 int isFull(struct stack *s)
 {
     if(s->top==(s->size)-1)
@@ -23,6 +25,7 @@ int isFull(struct stack *s)
         return 0;    
 }
 
+// This function is used to display all the elements present in the stack
 void traverse(struct stack *s)
 {
     if(isEmpty(s))
@@ -35,6 +38,7 @@ void traverse(struct stack *s)
         
 }
 
+// This function is used to add number at the top position of stack
 void push(struct stack *s,int ele)
 {
     if(isFull(s))
@@ -49,6 +53,7 @@ void push(struct stack *s,int ele)
     }  
 }
 
+// This function is used to remove the top element
 void pop(struct stack *s)
 {
     if(isEmpty(s))
@@ -74,7 +79,6 @@ void peek(struct stack *s)
         printf("The element at the the top of stack is %d\n",s->a[s->top]);
     }
     // isEmpty(s)?printf("Stack is empty\n"):printf("The element at the the top of stack is %d\n",s->a[s->top]);        
-
 }
 
 int main()
@@ -96,8 +100,8 @@ int main()
                 break;
         case 3:pop(s);
             break;
-        // case 4:peek(s);
-        //     break;
+         case 4:peek(s);
+             break;
         case 5: printf("Successfully Exited\n");
             break;               
         default: printf("Enter a valid choice\n");
