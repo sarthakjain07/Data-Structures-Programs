@@ -16,6 +16,12 @@ int isEmpty()
     return 0;    
 }
 
+int isFull()
+{
+    if(element_added==size)
+        return 1;
+    return 0;    
+}
 
 
 
