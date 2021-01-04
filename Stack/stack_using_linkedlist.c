@@ -62,7 +62,7 @@ void push(int ele)
     }
 }
 
-
+// This function is used to delete the element from top of stack
 void pop()
 {
     if (isEmpty())
@@ -78,9 +78,7 @@ void pop()
     }
 }
 
-
-
-
+// main function controlling all other functions
 int main()
 {
     int choice, ele;
