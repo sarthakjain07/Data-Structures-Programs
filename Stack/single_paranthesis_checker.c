@@ -16,7 +16,7 @@ int paranthesisChecker(char *e)
 
     for (int i = 0; e[i]!='\0'; i++)
     {
-        if(e[i]=='(')
+        if(e[i]=='(' || e[i]=='[' || e[i]=='{')
         {
             s->top++;
             s->character_array[s->top]='(';
