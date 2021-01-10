@@ -8,6 +8,20 @@ struct queue{
     int *a;
 };
 
+int isFull(struct queue *q)
+{
+    if(q->rear==(q->size)-1)
+        return 1;
+    return 0;    
+}
+
+int isEmpty(struct queue *q)
+{
+    if(q->front==q->rear)
+        return 1;
+    return 0;    
+}
+
 int main()
 {
     int choice,ele;
