@@ -57,6 +57,19 @@ void dequeue(struct queue *q)
     }
 }
 
+void peek(struct queue *q)
+{
+    printf("Enter the element to be searched\n");
+    int searchEle;
+    scanf("%d",&searchEle);
+    while (q->a[q->front]!=searchEle)
+    {
+        q->front++;
+    }
+    printf("The position of your element in queue is %d\n",q->front);
+    
+}
+
 int main()
 {
     int choice,ele;
@@ -79,8 +92,8 @@ int main()
                 break;
         case 3: dequeue(q);
                 break;
-        // case 4: peek(q);
-        //         break;
+        case 4: peek(q);
+                break;
         case 5: printf("Successfully Exited\n");
                 break;               
         default:printf("Enter a valid choice\n");
