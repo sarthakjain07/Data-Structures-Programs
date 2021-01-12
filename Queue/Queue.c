@@ -40,8 +40,20 @@ void traverse(struct queue *q)
     else
     {
         printf("Elements of queue are:\n");
-        for(int i=0; i<=q->rear;i++)
+        for(int i=(q->front)+1; i<=q->rear;i++)
             printf("%d\n",q->a[i]);
+    }
+}
+
+void dequeue(struct queue *q)
+{
+    if(isEmpty(q))
+        printf("Queue underflow\n");
+    else
+    {
+        q->front++;
+        int *ptr=&(q->front);
+        free(ptr);
     }
 }
 
@@ -65,8 +77,8 @@ int main()
                 scanf("%d",&ele);
                 enqueue(q,ele);
                 break;
-        // case 3: pop(q);
-        //         break;
+        case 3: dequeue(q);
+                break;
         // case 4: peek(q);
         //         break;
         case 5: printf("Successfully Exited\n");
