@@ -10,6 +10,22 @@ typedef struct ll{
 linkl * front = NULL;
 linkl * rear = NULL;
 
+void enqueue(ele)
+{
+    linkl *node=(linkl *)malloc(sizeof(linkl));
+    if(node==NULL)//condition when memory goes out of space happens rarely
+        printf("Queue Overflow");
+    else 
+    {
+        node->data=ele;
+        node->next=rear;
+        if(front==NULL)
+            front=rear=node;
+        else
+            rear=node;    
+    }
+        
+}
 
 int main()
 {
@@ -20,15 +36,15 @@ int main()
     scanf("%d",&choice);
         switch (choice)
         {
-        case 1: traverse(q);
+        case 1: traverse();
                 break;
         case 2: printf("Enter the element to be enqueued\n");
                 scanf("%d",&ele);
-                enqueue(q,ele);
+                enqueue(ele);
                 break;
-        case 3: dequeue(q);
+        case 3: dequeue();
                 break;
-        case 4: peek(q);
+        case 4: peek();
                 break;
         case 5: printf("Successfully Exited\n");
                 break;               
