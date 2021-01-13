@@ -3,26 +3,52 @@
 
 typedef struct ll{
     int data;
-    struct ll next;
+    struct ll * next;
 }linkl;
 
 //global variables
 linkl * front = NULL;
 linkl * rear = NULL;
 
-void enqueue(ele)
+void enqueue(int ele)
 {
     linkl *node=(linkl *)malloc(sizeof(linkl));
     if(node==NULL)//condition when memory goes out of space happens rarely
-        printf("Queue Overflow");
+        printf("Queue Overflow\n");
     else 
     {
         node->data=ele;
         node->next=rear;
         if(front==NULL)
+        {
+            printf("First node\n");
             front=rear=node;
+        }        
         else
-            rear=node;    
+        {
+            printf("Not First node\n");
+            rear=node;
+        }
+                
+    }
+        
+}
+
+void display()
+{
+    if(front==NULL)
+        printf("Queue underflow\n");
+    else
+    {
+        linkl *ptr=front;
+        printf("The elements are:\n");
+        printf("%d\n",ptr->data);
+        while (ptr->next!=NULL)
+        {
+            printf("%d\n",ptr->data);
+            ptr=ptr->next;
+        }
+        
     }
         
 }
@@ -36,16 +62,16 @@ int main()
     scanf("%d",&choice);
         switch (choice)
         {
-        case 1: traverse();
+        case 1: display();
                 break;
         case 2: printf("Enter the element to be enqueued\n");
                 scanf("%d",&ele);
                 enqueue(ele);
                 break;
-        case 3: dequeue();
-                break;
-        case 4: peek();
-                break;
+        // case 3: dequeue();
+        //         break;
+        // case 4: peek();
+        //         break;
         case 5: printf("Successfully Exited\n");
                 break;               
         default:printf("Enter a valid choice\n");
