@@ -18,15 +18,17 @@ void enqueue(int ele)
     else 
     {
         node->data=ele;
-        node->next=rear;
         if(front==NULL)
         {
             printf("First node\n");
             front=rear=node;
+            node->next=NULL;
         }        
         else
         {
             printf("Not First node\n");
+            node->next=rear->next;
+            rear->next=node;
             rear=node;
         }
                 
@@ -42,11 +44,33 @@ void display()
     {
         linkl *ptr=front;
         printf("The elements are:\n");
-        printf("%d\n",ptr->data);
-        while (ptr->next!=NULL)
+        // printf("%d\n",ptr->data);
+        while (ptr!=NULL)
         {
             printf("%d\n",ptr->data);
             ptr=ptr->next;
+        }
+        
+    }
+        
+}
+
+void dequeue()
+{
+    if(front==NULL)
+        printf("Queue underflow or empty\n");
+    else
+    {
+        linkl * ptr=front;
+        if(front->next==NULL)
+        {
+            free(ptr);
+            front=NULL;
+        }
+        else
+        {
+            front=front->next;
+            free(ptr);
         }
         
     }
@@ -68,8 +92,8 @@ int main()
                 scanf("%d",&ele);
                 enqueue(ele);
                 break;
-        // case 3: dequeue();
-        //         break;
+        case 3: dequeue();
+                break;
         // case 4: peek();
         //         break;
         case 5: printf("Successfully Exited\n");
