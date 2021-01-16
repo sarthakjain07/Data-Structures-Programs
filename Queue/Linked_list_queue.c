@@ -77,6 +77,34 @@ void dequeue()
         
 }
 
+void peek()
+{
+    if(front==NULL)
+        printf("Queue Empty\n");
+    else
+    {
+        int position,i=1;
+        linkl * ptr=front;
+        printf("Enter the position where number to be searched\n");
+        scanf("%d",&position);
+        if(position==1)
+            printf("The element is %d\n",ptr->data);
+        else
+        {
+            while (i<position)
+            {
+                ptr=ptr->next;
+                i++;    
+            }
+            if(ptr==NULL)
+                printf("NO such element at the required position\n");
+            else
+                printf("The element is %d\n",ptr->data);
+        }
+    }
+        
+}
+
 int main()
 {
     int choice,ele;
@@ -94,8 +122,8 @@ int main()
                 break;
         case 3: dequeue();
                 break;
-        // case 4: peek();
-        //         break;
+        case 4: peek();
+                break;
         case 5: printf("Successfully Exited\n");
                 break;               
         default:printf("Enter a valid choice\n");
