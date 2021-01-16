@@ -23,7 +23,7 @@ int paranthesisChecker(char *e)
             s->top++;
             s->character_array[s->top]='('; // pushed in to the stack
         }
-        else if (e[i]=='(' || e[i]=='[' || e[i]=='{')
+        else if (e[i]==')' || e[i]==']' || e[i]=='}')
         {
             if(s->top==-1)
                 return 0; // unbalnced condition if poping in empty stack
