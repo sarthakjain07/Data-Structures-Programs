@@ -80,7 +80,7 @@ int main()
     q->a=(int *)malloc(q->size*sizeof(int));
     do
     {
-    printf("Welcome to the program of stack\nEnter your choice\n1. Traverse\n2. Enqueue\n3. Dequeue\n4. peek\n5. Exit\n");
+    printf("Welcome to the program of Queue\nEnter your choice\n1. Traverse\n2. Enqueue\n3. Dequeue\n4. peek\n5. Exit\n");
     scanf("%d",&choice);
         switch (choice)
         {
