@@ -28,13 +28,31 @@ void traverse(struct dq *q)
         printf("Queue is empty\n");
     else
     {
-        if(q->front==-1)
-            q->front++;
-        for (int i = q->front; i <= q->rear; i++)
+        printf("The elements in the queue are:\n");
+        for (int i = (q->front)+1; i <= q->rear; i++)
             printf("%d\n",q->arr[i]);    
      
     }
         
+}
+
+void dequeueFront(struct dq *q)
+{
+    if(isEmpty(q))
+        printf("Queue is empty\n");
+    else 
+        q->front++;
+}
+
+void enqueueFront(struct dq *q, int ele)
+{
+    if(isFull(q))
+        printf("Queue is full\n");
+    else
+    {
+        q->front++;
+        q->arr[q->front]=ele;
+    }    
 }
 
 void enqueueRear(struct dq *q,int ele)
@@ -47,7 +65,6 @@ void enqueueRear(struct dq *q,int ele)
         q->arr[q->rear]=ele;
     }    
 }
-
 
 
 int main()
@@ -70,14 +87,14 @@ int main()
                 scanf("%d",&ele);
                 enqueueRear(q,ele);
                 break;
-        // case 3: dequeueFront(q);
-        //         break;
+        case 3: dequeueFront(q);
+                break;
         // case 4: peek(q);
         //         break;
-        case 5: printf("Enter the element to be enqueued\n");
-                scanf("%d",&ele);
-                enqueueFront(q,ele);
-                break;
+        // case 5: printf("Enter the element to be enqueued\n");
+        //         scanf("%d",&ele);
+        //         enqueueFront(q,ele);
+        //         break;
         // case 6: dequeueRear(q);
         //         break;                
         case 7: printf("Successfully Exited\n");
