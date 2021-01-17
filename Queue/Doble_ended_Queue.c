@@ -76,6 +76,15 @@ void dequeueRear(struct dq *q)
         q->rear--;    
 }
 
+void peek(struct dq *q)
+{
+    int position,i;
+    printf("Enter the position at which you want the element\n");
+    scanf("%d",&position);
+    for (i = 0; i <= position; i++)
+    printf("The value at that position is %d\n",q->arr[i]);
+}
+
 int main()
 {
     int choice,ele;
@@ -98,8 +107,8 @@ int main()
                 break;
         case 3: dequeueFront(q);
                 break;
-        // case 4: peek(q);
-        //         break;
+        case 4: peek(q);
+                break;
         case 5: printf("Enter the element to be enqueued\n");
                 scanf("%d",&ele);
                 enqueueFront(q,ele);

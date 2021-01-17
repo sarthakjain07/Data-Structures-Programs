@@ -59,15 +59,11 @@ void dequeue(struct queue *q)
 
 void peek(struct queue *q)
 {
-    printf("Enter the element to be searched\n");
-    int searchEle;
-    scanf("%d",&searchEle);
-    while (q->a[q->front]!=searchEle)
-    {
-        q->front++;
-    }
-    printf("The position of your element in queue is %d\n",q->front);
-    
+    int position,i;
+    printf("Enter the position at which you want the element\n");
+    scanf("%d",&position);
+    for (i = 0; i <= position; i++)
+    printf("The value at that position is %d\n",q->a[i]);
 }
 
 int main()
