@@ -49,7 +49,7 @@ void enqueueFront(struct dq *q, int ele)
     if(isFull(q))
         printf("Queue is full\n");
     else if(q->front==-1)
-        printf("Number already present at this position\n");
+        printf("Number already present at this position, need to deque from front first\n");
     else
     {
         q->arr[q->front]=ele;
@@ -68,6 +68,13 @@ void enqueueRear(struct dq *q,int ele)
     }    
 }
 
+void dequeueRear(struct dq *q)
+{
+    if(isEmpty(q))
+        printf("Queue is empty\n");
+    else
+        q->rear--;    
+}
 
 int main()
 {
@@ -97,8 +104,8 @@ int main()
                 scanf("%d",&ele);
                 enqueueFront(q,ele);
                 break;
-        // case 6: dequeueRear(q);
-        //         break;                
+        case 6: dequeueRear(q);
+                break;                
         case 7: printf("Successfully Exited\n");
                 break;               
         default:printf("Enter a valid choice\n");
