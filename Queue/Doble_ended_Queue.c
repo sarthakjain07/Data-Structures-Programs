@@ -22,7 +22,16 @@ int isFull(struct dq *q)
     return 0;    
 }
 
-void enqueueRear(struct dq *q,int ele);
+void enqueueRear(struct dq *q,int ele)
+{
+    if(isFull(q))
+        printf("Queue is full\n");
+    else
+    {
+        q->r++;
+        q->arr[q->r]=ele;
+    }    
+}
 
 int main()
 {
