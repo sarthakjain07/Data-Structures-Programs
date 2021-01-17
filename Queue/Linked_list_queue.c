@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// structure of a linked list
 typedef struct ll{
     int data;
     struct ll * next;
@@ -10,6 +11,8 @@ typedef struct ll{
 linkl * front = NULL;
 linkl * rear = NULL;
 
+
+// This function is used to enter the element in our queue
 void enqueue(int ele)
 {
     linkl *node=(linkl *)malloc(sizeof(linkl));
@@ -36,6 +39,7 @@ void enqueue(int ele)
         
 }
 
+//  This function displays all the elements of queue if present
 void display()
 {
     if(front==NULL)
@@ -55,6 +59,7 @@ void display()
         
 }
 
+// This function is used to delete the element from our queue
 void dequeue()
 {
     if(front==NULL)
@@ -77,6 +82,7 @@ void dequeue()
         
 }
 
+// This function tells the position of the element you are searching
 void peek()
 {
     if(front==NULL)
@@ -105,6 +111,7 @@ void peek()
         
 }
 
+// This function controls all the other functions
 int main()
 {
     int choice,ele;
