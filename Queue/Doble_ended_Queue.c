@@ -91,10 +91,10 @@ int main()
                 break;
         // case 4: peek(q);
         //         break;
-        // case 5: printf("Enter the element to be enqueued\n");
-        //         scanf("%d",&ele);
-        //         enqueueFront(q,ele);
-        //         break;
+        case 5: printf("Enter the element to be enqueued\n");
+                scanf("%d",&ele);
+                enqueueFront(q,ele);
+                break;
         // case 6: dequeueRear(q);
         //         break;                
         case 7: printf("Successfully Exited\n");
