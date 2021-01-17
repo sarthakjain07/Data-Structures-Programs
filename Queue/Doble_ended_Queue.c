@@ -48,6 +48,8 @@ void enqueueFront(struct dq *q, int ele)
 {
     if(isFull(q))
         printf("Queue is full\n");
+    else if(q->front==-1)
+        printf("Number already present at this position\n");
     else
     {
         q->arr[q->front]=ele;
