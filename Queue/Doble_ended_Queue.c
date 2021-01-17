@@ -50,8 +50,8 @@ void enqueueFront(struct dq *q, int ele)
         printf("Queue is full\n");
     else
     {
-        q->front++;
         q->arr[q->front]=ele;
+        q->front--;
     }    
 }
 
